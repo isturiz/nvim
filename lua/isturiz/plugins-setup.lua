@@ -104,6 +104,17 @@ return require("packer").startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
+	-- autosave
+	use({
+		"Pocco81/auto-save.nvim",
+		config = function()
+			require("auto-save").setup({
+				-- your config goes here
+				-- or just leave it empty :)
+			})
+		end,
+	})
+
 	-- Put this at the end after all plugins
 
 	if packer_bootstrap then
