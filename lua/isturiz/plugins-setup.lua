@@ -28,7 +28,9 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- My plugins here
-	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+
+	-- lua functions that many plugins use
+	use("nvim-lua/plenary.nvim")
 
 	use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
 
@@ -105,16 +107,16 @@ return require("packer").startup(function(use)
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
 	-- autosave
-	use({
-		"Pocco81/auto-save.nvim",
-		config = function()
-			require("auto-save").setup({
-				-- your config goes here
-				-- or just leave it empty :)
-			})
-		end,
-	})
-
+	-- use({
+	-- 	"Pocco81/auto-save.nvim",
+	-- 	config = function()
+	-- 		require("auto-save").setup({
+	-- 			-- your config goes here
+	-- 			-- or just leave it empty :)
+	-- 		})
+	-- 	end,
+	-- })
+	--
 	-- Put this at the end after all plugins
 
 	if packer_bootstrap then

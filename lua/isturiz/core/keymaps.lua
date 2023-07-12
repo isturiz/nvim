@@ -5,13 +5,15 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 -- General Keymaps --
 ---------------------
+
 -- Write and Save
 keymap.set("n", "<leader>w", ":w<CR>")
+keymap.set("n", "<leader>wa", ":wa<CR>")
 keymap.set("n", "<leader>q", ":q<CR>")
--- keymap.set("mode", "key or keys", "<ACTION>") 
+-- keymap.set("mode", "key or keys", "<ACTION>")
 
 -- use jk to exit insert mode
-keymap.set("i", "jk", "<ESC>") -- jk work same of ESC 
+keymap.set("i", "jk", "<ESC>") -- jk work same of ESC
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
@@ -31,7 +33,7 @@ keymap.set("n", "x", '"_x')
 -- C + w + w -> alterna entre ventanas
 -- C + w + v -> split vertically
 
--- Vim Tmux Navigator 
+-- Vim Tmux Navigator
 -- <ctrl-h> => Left
 -- <ctrl-j> => Down
 -- <ctrl-k> => Up
@@ -47,7 +49,6 @@ keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
-
 
 ---------------------
 -- Plugin Keybinds --
