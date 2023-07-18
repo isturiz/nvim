@@ -34,5 +34,14 @@ opt.splitbelow = true
 
 opt.iskeyword:append("-") -- consider string-string as whole word
 
+-- Save without extras spaces
 vim.cmd([[autocmd BufWritePre * :%s/\s\+$//e]])
 -- autocmd BufWritePre * :%s/\s\+$//e
+
+-- Desactivate wrap line by default
+vim.cmd([[
+  augroup DisableWrap
+    autocmd!
+    autocmd BufEnter * set nowrap
+  augroup END
+]])

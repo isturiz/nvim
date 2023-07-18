@@ -12,6 +12,9 @@ keymap.set("n", "<leader>wa", ":wa<CR>")
 keymap.set("n", "<leader>q", ":q<CR>")
 -- keymap.set("mode", "key or keys", "<ACTION>")
 
+-- Switch between files
+keymap.set("n", "<leader><TAB>", ":b#<CR>")
+
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>") -- jk work same of ESC
 
