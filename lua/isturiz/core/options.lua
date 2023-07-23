@@ -1,5 +1,8 @@
 local opt = vim.opt -- for consciseness
 
+-- Show matchparen
+opt.showmatch = true
+
 -- line numbers
 opt.relativenumber = true
 opt.number = true
@@ -40,8 +43,11 @@ vim.cmd([[autocmd BufWritePre * :%s/\s\+$//e]])
 
 -- Desactivate wrap line by default
 vim.cmd([[
-  augroup DisableWrap
-    autocmd!
-    autocmd BufEnter * set nowrap
-  augroup END
+augroup DisableWrap
+autocmd!
+autocmd BufEnter * set nowrap
+augroup END
 ]])
+
+-- Save with 4 space indent
+vim.cmd([[autocmd BufWritePre * :execute 'normal! mzgg=G`z']])

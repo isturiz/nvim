@@ -15,6 +15,7 @@ require("isturiz.plugins.nvim-cmp")
 require("isturiz.plugins.autopairs")
 require("isturiz.plugins.treesitter")
 require("isturiz.plugins.gitsigns")
+require("isturiz.plugins.indent-blackline")
 
 -- lsp
 require("isturiz.plugins.lsp.mason")

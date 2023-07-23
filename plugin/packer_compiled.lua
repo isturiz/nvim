@@ -104,6 +104,21 @@ _G.packer_plugins = {
     path = "/Users/isturiz/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["dart-vim-plugin"] = {
+    loaded = true,
+    path = "/Users/isturiz/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
+    url = "https://github.com/dart-lang/dart-vim-plugin"
+  },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/Users/isturiz/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
+  ["flutter-tools.nvim"] = {
+    loaded = true,
+    path = "/Users/isturiz/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
+    url = "https://github.com/akinsho/flutter-tools.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/isturiz/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -113,6 +128,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/isturiz/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/isturiz/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -210,6 +230,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/isturiz/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister",
     url = "https://github.com/inkarkat/vim-ReplaceWithRegister"
+  },
+  ["vim-flutter"] = {
+    loaded = true,
+    path = "/Users/isturiz/.local/share/nvim/site/pack/packer/start/vim-flutter",
+    url = "https://github.com/thosakwe/vim-flutter"
   },
   ["vim-maximizer"] = {
     loaded = true,

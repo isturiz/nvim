@@ -26,6 +26,10 @@ keymap.set("n", "<leader>z", ":set wrap!<CR>")
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
+-- open terminal inside neovim
+keymap.set("n", "<leader>t", ":terminal<CR>")
+keymap.set("t", "<leader>t", "<C-\\><C-n>:terminal<CR>")
+
 -- increment/decrement numbers
 -- keymap.set("n", "<leader>+", "<C-a>") -- increment
 -- keymap.set("n", "<leader>-", "<C-x>") -- decrement
