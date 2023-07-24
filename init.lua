@@ -22,3 +22,9 @@ require("isturiz.plugins.lsp.mason")
 require("isturiz.plugins.lsp.lspconfig")
 require("isturiz.plugins.lsp.lspsaga")
 require("isturiz.plugins.lsp.null-ls")
+
+
+-- require("core.options")
+-- require("core.keymaps")
+-- require("core.plugins")
+-- require("core.plugin_config")
