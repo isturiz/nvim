@@ -12,10 +12,10 @@ end
 local packer_bootstrap = ensure_packer()
 
 vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
-  augroup end
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+augroup end
 ]])
 
 -- import packer safely
@@ -24,6 +24,7 @@ if not status then
 	return
 end
 
+-- packer plugins
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
