@@ -1,5 +1,5 @@
 -- plugin required before all
-require("isturiz.plugins-setup")
+require("isturiz")
 
 -- core
 require("isturiz.core.options")
@@ -22,7 +22,6 @@ require("isturiz.plugins.lsp.mason")
 require("isturiz.plugins.lsp.lspconfig")
 require("isturiz.plugins.lsp.lspsaga")
 require("isturiz.plugins.lsp.null-ls")
-
 
 -- require("core.options")
 -- require("core.keymaps")
