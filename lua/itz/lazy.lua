@@ -18,7 +18,6 @@ require("lazy").setup {
     { import = "plugins" },
     { import = "plugins.extras.lang" },
     { import = "plugins.extras.ui" },
-    { import = "plugins.extras.ai" },
   },
   defaults = { lazy = true, version = nil },
   install = { missing = true, colorscheme = { "ayu" } },
