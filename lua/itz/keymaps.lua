@@ -14,6 +14,9 @@ keymap("", "<left>", "<nop>", {noremap = true})
 keymap("", "<right>", "<nop>", {noremap = true})
 
 local keymaps = {
+
+  -- activate / desactivate wrap line
+  {"n", "<leader><leader>l", ":set wrap!<CR>"},
   -- clear search highlighting
   {"n", "<leader>/", ":nohl<CR>"},
 

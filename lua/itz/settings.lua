@@ -45,7 +45,7 @@ vim.opt.synmaxcol = 1000          -- max column for syntax highlight
 vim.opt.tabstop = indent          -- 1 tab == 2 spaces
 vim.opt.undofile = true           -- enable undo
 vim.opt.updatetime = 300          -- faster completion
-vim.opt.wrap = true              -- display lines as one long line
+vim.opt.wrap = false              -- display lines as one long line
 vim.opt.wildmode = 'longest:full,full' -- Command-line completion mode
 --vim.opt.signcolumn = 'yes:2'     -- to create two columns in left to use gitsigns and lsp diagnostic icons
 vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undodir"
