@@ -1,0 +1,42 @@
+{
+  "contributes": {
+    "snippets": [
+      {
+        "language": "markdown",
+        "path": "./markdown.json"
+      },
+      {
+        "language": "gitcommit",
+        "path": "./gitcommit.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./javascriptreact.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "text",
+        "path": "./mit.json"
+      },
+      {
+        "language": "markdown",
+        "path": "./readme.json"
+      },
+      {
+        "language": "go",
+        "path": "./go.json"
+      }
+    ]
+  }
+}

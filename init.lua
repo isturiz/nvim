@@ -1,29 +1,10 @@
--- plugin required before all
-require("isturiz")
-
--- core
-require("isturiz.core.options")
-require("isturiz.core.keymaps")
-require("isturiz.core.colorscheme")
-
--- plugins
-require("isturiz.plugins.comment")
-require("isturiz.plugins.nvim-tree")
-require("isturiz.plugins.lualine")
-require("isturiz.plugins.telescope")
-require("isturiz.plugins.nvim-cmp")
-require("isturiz.plugins.autopairs")
-require("isturiz.plugins.treesitter")
-require("isturiz.plugins.gitsigns")
-require("isturiz.plugins.indent-blackline")
-
--- lsp
-require("isturiz.plugins.lsp.mason")
-require("isturiz.plugins.lsp.lspconfig")
-require("isturiz.plugins.lsp.lspsaga")
-require("isturiz.plugins.lsp.null-ls")
-
--- require("core.options")
--- require("core.keymaps")
--- require("core.plugins")
--- require("core.plugin_config")
+require "merlo.settings"
+require "merlo.keymaps"
+require "merlo.lazy"
+--Lazy--
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    require "merlo.autocmds"
+  end,
+})

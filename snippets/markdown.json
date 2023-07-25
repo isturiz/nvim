@@ -1,0 +1,88 @@
+{
+    "date": {
+        "prefix": "date",
+        "body": ["$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $0"]
+    },
+    "inline code": {
+        "prefix": "ic",
+        "body": ["`$1`$0"]
+    },
+    "code block python": {
+        "prefix": "cp",
+        "body": [
+            "```python",
+            "$1```",
+            "$0"
+        ]
+    },
+    "code block bash": {
+        "prefix": "cb",
+        "body": [
+            "```bash",
+            "$1```",
+            "$0"
+        ]
+    },
+    "zettel note": {
+        "prefix": "zn",
+        "body": [
+            "---",
+            "title: $1",
+            "filename: $TM_FILENAME",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $2",
+            "---",
+            "# $1",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $1",
+            "",
+            "---",
+            ""
+        ]
+    },
+    "zettel podcast": {
+        "prefix": "zp",
+        "body": [
+            "---",
+            "season: $1",
+            "episode: $2",
+            "title: $3",
+            "filename: $TM_FILENAME",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $4",
+            "---",
+            "",
+            "# $3",
+            "",
+            "Hi my name is **Merlo**",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $3",
+            "",
+            "---",
+            "",
+            ""
+        ]
+    },
+    "zettel chapter": {
+        "prefix": "zc",
+        "body": [
+            "---",
+            "title: $1",
+            "tutorial: $2",
+            "filename: $TM_FILENAME",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $3",
+            "---",
+            "$0"
+        ]
+    }
+}
