@@ -1,3 +1,5 @@
+-- check file
+
 return {
   "ziontee113/color-picker.nvim",
   keys = {

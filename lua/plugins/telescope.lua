@@ -84,7 +84,7 @@ return {
     },
     config = function(_, _)
       local telescope = require("telescope")
-      local icons = require("merlo.icons")
+      local icons = require("itz.icons")
       local actions = require("telescope.actions")
       local actions_layout = require("telescope.actions.layout")
       local mappings = {

@@ -1,4 +1,4 @@
-local icons = require "merlo.icons"
+local icons = require "itz.icons"
 local Job = require "plenary.job"
 
 local function fg(name)

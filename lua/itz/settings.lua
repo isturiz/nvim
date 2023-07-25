@@ -1,5 +1,5 @@
 -----------------------------------------------------------
--- Merlo Nvim settings
+-- Itz Nvim settings
 -----------------------------------------------------------
 vim.g.mapleader = ' '             -- change leader to space
 -- Default indent

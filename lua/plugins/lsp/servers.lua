@@ -1,7 +1,7 @@
 local M = {}
 
 local lsp_utils = require("plugins.lsp.utils")
-local icons = require("merlo.icons")
+local icons = require("itz.icons")
 
 local function lsp_init()
   local signs = {

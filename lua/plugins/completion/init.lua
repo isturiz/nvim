@@ -14,7 +14,7 @@ return {
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
-      local icons = require("merlo.icons")
+      local icons = require("itz.icons")
       --local lspkind = require('lspkind')
       local compare = require "cmp.config.compare"
 
