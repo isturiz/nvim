@@ -6,7 +6,6 @@ return {
     { "<leader>j", "<Cmd>BufferLineCyclePrev<CR>" },
     { "<leader>k", "<Cmd>BufferLineCycleNext<CR>" },
     { "<leader>l", "<Cmd>BufferLineMoveNext<CR>" },
-    { "<leader>l", "<Cmd>BufferLineMoveNext<CR>" },
     { "<leader>p", "<Cmd>BufferLineTogglePin<CR>" },
     { "<leader>pk", "<Cmd>BufferLinePick<CR>" },
     { "<leader>e", "<Cmd>bdelete<CR>" },
