@@ -23,7 +23,7 @@ return {
       overrides = {}
     },
     config = function(opts,_)
-      require("ayu").setup(opts)
+      -- require("ayu").setup(opts)
     end,
   },
   {
@@ -31,8 +31,30 @@ return {
     lazy = false,
     config = function()
       local tokyonight = require "tokyonight"
-      tokyonight.setup { style = "storm" }
-      tokyonight.load()
+      tokyonight.setup {
+        style = "storm",
+        on_highlights = function(hl, colors)
+          -- hl.SpellBad = {
+          --   fg = colors.red,        -- Color del texto subrayado
+          --   bg = colors.white,  -- Color del fondo del subrayado
+          --   style = "underline",    -- Estilo del subrayado (puedes cambiarlo a "undercurl" para un subrayado ondulado)
+          -- }
+          -- hl.LspReferenceText = { -- Modifica el resaltado del texto de referencia
+          --   bg = colors.white, -- Cambia este color al que prefieras
+          -- }
+          -- hl.LspReferenceWrite = { -- Modifica el resaltado del texto de referencia de escritura
+          --   bg = colors.white, -- Cambia este color al que prefieras
+          -- }
+          -- hl.fg_gutter = colors.white
+        -- hl.LineNr = {
+        --   fg = colors.yellow
+        -- }
+        -- hl.CursorLineNr = {
+        --   fg = colors.yellow
+        -- }
+        end
+      }
+      -- tokyonight.load()
     end,
   },
   {
@@ -67,7 +89,7 @@ return {
     lazy = false,
     config = function()
       require("gruvbox").setup()
-      --require("gruvbox").load()
+      require("gruvbox").load()
     end,
   },
 }
