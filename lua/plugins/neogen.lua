@@ -8,11 +8,6 @@ return {
     enabled = true,
     snippet_engine = "luasnip",
     languages = {
-      php = {
-        template = {
-          annotation_convention = "phpdoc",
-        },
-      },
       go = {
         template = {
           annotation_convention = "godoc",

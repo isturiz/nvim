@@ -76,11 +76,9 @@ return {
     opts = {
       ensure_installed = {
         "ruff",
-        "phpcbf",
         "eslint_d",
         "prettier",
         "stylua",
-        "phpcs",
       },
     },
     config = function(_, opts)
@@ -112,23 +110,12 @@ return {
       nls.setup({
         sources = {
           --here add new sources
-          nls.builtins.formatting.phpcbf.with({ extra_args = { "--standard=PSR12" }}),
           nls.builtins.formatting.eslint,
           --prettier format in current buffer
           nls.builtins.formatting.prettier.with({ extra_args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0) }}),
           nls.builtins.formatting.stylua,
           nls.builtins.diagnostics.eslint.with({ method = nls.methods.DIAGNOSTICS_ON_SAVE }),
           nls.builtins.diagnostics.ruff.with({ extra_args = { "--max-line-length=180" }, method = nls.methods.DIAGNOSTICS_ON_SAVE }),
-          nls.builtins.diagnostics.phpcs.with({ extra_args = { "--standard=PSR12" }, method = nls.methods.DIAGNOSTICS_ON_SAVE }),
-
-          nls.builtins.diagnostics.phpstan.with {
-            to_temp_file = false,
-            method = nls.methods.DIAGNOSTICS_ON_SAVE,
-            command = "./vendor/bin/phpstan",
-            condition = function ()
-              return vim.fn.findfile("vendor/bin/phpstan") ~= ""
-            end
-          },
         },
       })
     end,

@@ -17,9 +17,9 @@ local keymaps = {
 
   -- activate / desactivate wrap line
   {"n", "<leader><leader>l", ":set wrap!<CR>"},
+
   -- clear search highlighting
   {"n", "<leader>/", ":nohl<CR>"},
-
 
   --{"n", "<C-t>", ":Term<CR>"},
 
