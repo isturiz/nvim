@@ -1,9 +1,10 @@
 -----------------------------------------------------------
--- Itz Nvim settings
+-- ITZ Nvim settings
 -----------------------------------------------------------
+
 vim.g.mapleader = ' '             -- change leader to space
--- Default indent
-local indent = 2
+
+local indent = 2                  -- Default indent
 
 -----------------------------------------------------------
 -- Neovim UI
@@ -21,7 +22,6 @@ vim.opt.history = 100             -- remember n lines in history
 vim.opt.ignorecase = true         -- ignore case in search patterns
 vim.opt.inccommand = "nosplit"    -- show substitution in real time
 vim.opt.joinspaces = false        -- no double spaces with join after a dot
--- vim.opt.lazyredraw = true         -- faster scrolling
 vim.opt.linebreak = true          -- wrap on word boundary
 vim.opt.list = true               -- Show some invisible characters
 vim.opt.mouse = 'a'               -- enable mouse support
@@ -33,7 +33,6 @@ vim.opt.termguicolors = true      -- true color support
 vim.opt.scrolloff = 8             -- lines of context
 vim.opt.scrollback = 10000        -- max scrollback lines
 vim.opt.shiftround = true         -- round indent
-vim.opt.shiftwidth = indent       -- size of an indent
 vim.opt.sidescrolloff = 8         -- columns of context
 vim.opt.smartcase = true          -- ignore lowercase for the whole pattern
 vim.opt.smartindent = true        -- autoindent new lines
@@ -42,11 +41,15 @@ vim.opt.splitright = true         -- vertical split to the right
 vim.opt.showmatch = true          -- highlight matching parenthesis
 vim.opt.swapfile = false          -- don't use swapfile
 vim.opt.synmaxcol = 1000          -- max column for syntax highlight
-vim.opt.tabstop = indent          -- 1 tab == 2 spaces
 vim.opt.undofile = true           -- enable undo
 vim.opt.updatetime = 300          -- faster completion
 vim.opt.wrap = false              -- display lines as one long line
 vim.opt.wildmode = 'longest:full,full' -- Command-line completion mode
+
+-- indent and tab
+vim.opt.shiftwidth = indent       -- size of an indent
+vim.opt.tabstop = indent          -- 1 tab == 2 spaces
+
 --vim.opt.signcolumn = 'yes:2'     -- to create two columns in left to use gitsigns and lsp diagnostic icons
 vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undodir"
 
