@@ -15,7 +15,7 @@ return {
     keys = {
       { "<Leader><Leader>i", "<cmd>IconPickerNormal nerd_font<cr>", mode = "n" },
       { "<Leader><Leader>y", "<cmd>IconPickerYank nerd_font<cr>",   mode = "n" },
-      { "<C-o>",             "<cmd>IconPickerInsert nerd_font<cr>", mode = "i" },
+      -- { "<C-o>",             "<cmd>IconPickerInsert nerd_font<cr>", mode = "i" }, -- this shortcut is already in use
     },
     opts = { disable_legacy_commands = true },
   },

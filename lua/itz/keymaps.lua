@@ -21,8 +21,6 @@ local keymaps = {
   -- clear search highlighting
   {"n", "<leader>/", ":nohl<CR>"},
 
-  --{"n", "<C-t>", ":Term<CR>"},
-
   -- Paste over currently selected text without yanking it below
   {"v", "p", "\"_dP"},
 
@@ -48,13 +46,15 @@ local keymaps = {
   {"n", "<C-k>", "<C-w>k"},
   {"n", "<C-l>", "<C-w>l"},
 
-  -- Move Lines
-  {"n", "<A-j>", ":m .+1<CR>=="},
-  {"v", "<A-j>", ":m '>+1<CR>gv=gv"},
-  {"i", "<A-j>", "<Esc>:m .+1<CR>==gi"},
-  {"n", "<A-k>", ":m .-2<CR>=="},
-  {"v", "<A-k>", ":m '<-2<CR>gv=gv"},
-  {"i", "<A-k>", "<Esc>:m .-2<CR>==gi"},
+  ----- Move Lines
+  -- move down
+  {"n", "<C-i>", ":m .+1<CR>=="},
+  {"v", "<C-i>", ":m '>+1<CR>gv=gv"},
+  {"i", "<C-i>", "<Esc>:m .+1<CR>==gi"},
+  -- move up
+  {"n", "<C-o>", ":m .-2<CR>=="},
+  {"v", "<C-o>", ":m '<-2<CR>gv=gv"},
+  {"i", "<C-o>", "<Esc>:m .-2<CR>==gi"},
 
   -- For my custom plugin
   {"n", "<leader>cps", ":lua require('custom.selector').select()<CR>"},
