@@ -49,6 +49,7 @@ return {
             workingDirectory = { mode = "auto" },
           },
         },
+        custom_elements_ls = {},
       },
       setup = {
         eslint = function()
