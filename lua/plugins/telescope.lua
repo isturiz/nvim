@@ -24,7 +24,7 @@ return {
       },
     }
   },
-  
+
   config = function(opts)
     require('telescope').setup(opts)
     require('telescope').load_extension('fzf')
@@ -105,6 +105,12 @@ return {
         require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true })
       end,
       desc = "Telescope file browser"
+    },
+    {
+      "<leader>pg",
+      function()
+        require('telescope.builtin').live_grep()
+      end
     }
   },
 }

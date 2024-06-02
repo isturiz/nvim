@@ -7,14 +7,12 @@ return {
   },
 
   config = function()
-
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
     local on_attach = function(_, bufnr)
-
       vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
       local opts = { buffer = bufnr }
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
@@ -36,7 +34,9 @@ return {
       end, opts)
     end
 
+    -- languages config
     require("neodev").setup()
+
     require("lspconfig").lua_ls.setup({
       on_attach = on_attach,
       settings = {
@@ -45,6 +45,35 @@ return {
           workspace = { checkThirdParty = false },
         }
       }
+    })
+
+    require("lspconfig").html.setup({
+      on_attach = on_attach,
+    })
+
+    require("lspconfig").tsserver.setup({
+      on_attach = on_attach,
+      filetypes = { "typescript", "typescriptreact", "typescript.tsx" },  -- Asegúrate de incluir tsx
+    })
+
+    require("lspconfig").pyright.setup({
+      on_attach = on_attach,
+    })
+
+    require("lspconfig").astro.setup({
+      on_attach = on_attach,
+    })
+
+    require("lspconfig").cssls.setup({
+      on_attach = on_attach,
+    })
+
+    require("lspconfig").tailwindcss.setup({
+      on_attach = on_attach,
+    })
+
+    require("lspconfig").astro.setup({
+      on_attach = on_attach,
     })
   end
 }
