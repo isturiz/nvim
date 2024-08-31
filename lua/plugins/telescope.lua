@@ -83,7 +83,8 @@ return {
             return true
           end
         })
-      end
+      end,
+      desc = "Telescope Find Plugins",
     },
     {
       "<leader>pf",
