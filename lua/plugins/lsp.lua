@@ -49,11 +49,12 @@ return {
 
     require("lspconfig").html.setup({
       on_attach = on_attach,
+      filetypes = { "html", "typescriptreact", "typescript.tsx" }  -- Incluye 'tsx' y 'typescriptreact' para HTML
     })
 
     require("lspconfig").tsserver.setup({
       on_attach = on_attach,
-      filetypes = { "typescript", "typescriptreact", "typescript.tsx" },  -- Asegúrate de incluir tsx
+      filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
     })
 
     require("lspconfig").pyright.setup({
