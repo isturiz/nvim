@@ -1,30 +1,28 @@
-vim.opt.tabstop = 2
-vim.opt.expandtab = true
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2 -- Set the number of spaces that a tab character counts for
 
---vim.opt.smartindent = true
---
+vim.opt.expandtab = true -- Convert tabs to spaces
 
--- show numbers on the side
-vim.opt.nu = true
--- relative number on the side
-vim.opt.relativenumber = true
+vim.opt.softtabstop = 2 -- Number of spaces that a tab counts for in insert mode
 
--- don't wrap the line
-vim.opt.wrap = false
+vim.opt.shiftwidth = 2 -- Indentation width when using autoindent or similar
 
--- improve colors
-vim.opt.termguicolors = true
+vim.opt.nu = true -- Enable line numbers
 
---vim.opt.expandtab = true
+vim.opt.relativenumber = true -- Enable relative line numbers
 
--- clipboard
-vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
---vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.opt.wrap = false -- Disable line wrapping
 
--- preguntar por esta
-vim.opt.updatetime = 50
+vim.opt.termguicolors = true -- Enable 24-bit RGB colors in the terminal
 
-vim.opt.swapfile = false
-vim.opt.backup = false
+vim.opt.clipboard:append("unnamedplus") -- Use system clipboard as the default register
+
+vim.opt.updatetime = 50 -- Time in milliseconds to trigger the CursorHold event
+
+vim.opt.swapfile = false -- Disable swap file creation
+
+vim.opt.backup = false -- Disable backup file creation
+
+vim.g.netrw_liststyle = 3 -- Set netrw view to detailed list mode
+
+vim.g.netrw_keepdir = 1 -- Keep the cursor on the last file opened when returning to netrw
+
