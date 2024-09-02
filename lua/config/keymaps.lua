@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>q", ":q<ESC>", { desc = "Quit" })
 
 
-vim.keymap.set("n", "<leader>pv", function() vim.cmd.Ex() end, { desc = "Open netrw in explorer mode" })
+-- vim.keymap.set("n", "<leader>pv", function() vim.cmd.Ex() end, { desc = "Open netrw in explorer mode" })
 
 vim.keymap.set('n', 'x', '"_x', { noremap = true, desc = "delete without copy in the clipboard" })
 

@@ -111,7 +111,8 @@ return {
       "<leader>pg",
       function()
         require('telescope.builtin').live_grep()
-      end
+      end,
+      desc = "Telescope Live Grep",
     }
   },
 }
