@@ -6,35 +6,45 @@ return {
     "folke/neodev.nvim",
   },
 
-  config = function()
-    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-    vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
-
-    local on_attach = function(_, bufnr)
-      vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
-      local opts = { buffer = bufnr }
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-      vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-      vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-      vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-      vim.keymap.set('n', '<space>wl', function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-      end, opts)
-      vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-      vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-      vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-      vim.keymap.set('n', '<space>f', function()
+  keys = {
+    { "<space>e", vim.diagnostic.open_float, desc = "Open diagnostic float window" },
+    { "[d", vim.diagnostic.goto_prev, desc = "Go to previous diagnostic" },
+    { "]d", vim.diagnostic.goto_next, desc = "Go to next diagnostic" },
+    { "<space>q", vim.diagnostic.setloclist, desc = "Add diagnostics to loclist" },
+    { "gD", function() vim.lsp.buf.declaration() end, desc = "Go to declaration" },
+    { "gd", function() vim.lsp.buf.definition() end, desc = "Go to definition" },
+    { "K", function() vim.lsp.buf.hover() end, desc = "Show hover info" },
+    { "gi", function() vim.lsp.buf.implementation() end, desc = "Go to implementation" },
+    { "<C-k>", function() vim.lsp.buf.signature_help() end, desc = "Show signature help" },
+    -- { "<space>wa", function() vim.lsp.buf.add_workspace_folder() end, desc = "Add workspace folder" },
+    -- { "<space>wr", function() vim.lsp.buf.remove_workspace_folder() end, desc = "Remove workspace folder" },
+    -- {
+    --   "<space>wl",
+    --   function()
+    --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    --   end,
+    --   desc = "List workspace folders"
+    -- },
+    { "<space>D", function() vim.lsp.buf.type_definition() end, desc = "Go to type definition" },
+    { "<space>rn", function() vim.lsp.buf.rename() end, desc = "Rename symbol" },
+    { "<space>ca", function() vim.lsp.buf.code_action() end, desc = "Code action" },
+    { "gr", function() vim.lsp.buf.references() end, desc = "Find references" },
+    {
+      "<space>f",
+      function()
         vim.lsp.buf.format { async = true }
-      end, opts)
+      end,
+      desc = "Format buffer"
+    },
+  },
+
+  config = function()
+    local on_attach = function(_, bufnr)
+      -- Buffer local options and keymaps
+      vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
     end
 
-    -- languages config
+    -- Language server configurations
     require("neodev").setup()
 
     require("lspconfig").lua_ls.setup({
@@ -49,7 +59,7 @@ return {
 
     require("lspconfig").html.setup({
       on_attach = on_attach,
-      filetypes = { "html", "typescriptreact", "typescript.tsx", "astro" } -- Incluye 'tsx' y 'typescriptreact' para HTML
+      filetypes = { "html", "typescriptreact", "typescript.tsx", "astro" }
     })
 
     require("lspconfig").tsserver.setup({
@@ -57,25 +67,25 @@ return {
       filetypes = { "typescript", "typescriptreact", "javascriptreact", "javascript" },
     })
 
+    require("lspconfig").pyright.setup({ on_attach = on_attach })
+    require("lspconfig").astro.setup({ on_attach = on_attach })
+    require("lspconfig").cssls.setup({ on_attach = on_attach })
+    require("lspconfig").tailwindcss.setup({ on_attach = on_attach })
 
-    require("lspconfig").pyright.setup({
-      on_attach = on_attach,
-    })
-
-    require("lspconfig").astro.setup({
-      on_attach = on_attach,
-    })
-
-    require("lspconfig").cssls.setup({
-      on_attach = on_attach,
-    })
-
-    require("lspconfig").tailwindcss.setup({
-      on_attach = on_attach,
-    })
-
-    require("lspconfig").astro.setup({
-      on_attach = on_attach,
-    })
+    -- XML formatting configuration
+    local function format_xml()
+      local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+      local lsp_formatted = false
+      for _, client in ipairs(clients) do
+        if client.server_capabilities.documentFormattingProvider then
+          vim.lsp.buf.format({ async = true })
+          lsp_formatted = true
+          break
+        end
+      end
+      if not lsp_formatted then
+        vim.cmd([[ %!xmllint --format - ]])
+      end
+    end
   end
 }
