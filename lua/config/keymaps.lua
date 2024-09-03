@@ -39,3 +39,5 @@ vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 vim.keymap.set('v', '>', '>gv', { desc = "after tab in re-select the same" })
 vim.keymap.set('v', '<', '<gv', { desc = "after tab out re-select the same" })
 vim.keymap.set('', '<leader>rr', ':source %<cr>', { desc = "Source the current file" })
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
