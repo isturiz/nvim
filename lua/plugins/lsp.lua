@@ -61,7 +61,10 @@ return {
     require("lspconfig").pyright.setup({ on_attach = on_attach })
     require("lspconfig").astro.setup({ on_attach = on_attach })
     require("lspconfig").cssls.setup({ on_attach = on_attach })
-    require("lspconfig").tailwindcss.setup({ on_attach = on_attach })
+    require("lspconfig").tailwindcss.setup({
+      on_attach = on_attach,
+      filetypes = { "html", "typescriptreact", "typescript.tsx", "astro" },
+    })
 
     -- XML formatting configuration
     local function format_xml()
