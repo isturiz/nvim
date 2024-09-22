@@ -16,15 +16,6 @@ return {
     { "K", function() vim.lsp.buf.hover() end, desc = "Show hover info" },
     { "gi", function() vim.lsp.buf.implementation() end, desc = "Go to implementation" },
     { "<C-k>", function() vim.lsp.buf.signature_help() end, desc = "Show signature help" },
-    -- { "<space>wa", function() vim.lsp.buf.add_workspace_folder() end, desc = "Add workspace folder" },
-    -- { "<space>wr", function() vim.lsp.buf.remove_workspace_folder() end, desc = "Remove workspace folder" },
-    -- {
-    --   "<space>wl",
-    --   function()
-    --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    --   end,
-    --   desc = "List workspace folders"
-    -- },
     { "<space>D", function() vim.lsp.buf.type_definition() end, desc = "Go to type definition" },
     { "<space>rn", function() vim.lsp.buf.rename() end, desc = "Rename symbol" },
     { "<space>ca", function() vim.lsp.buf.code_action() end, desc = "Code action" },
@@ -62,7 +53,7 @@ return {
       filetypes = { "html", "typescriptreact", "typescript.tsx", "astro" }
     })
 
-    require("lspconfig").tsserver.setup({
+    require("lspconfig").ts_ls.setup({
       on_attach = on_attach,
       filetypes = { "typescript", "typescriptreact", "javascriptreact", "javascript" },
     })

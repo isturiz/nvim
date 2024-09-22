@@ -3,6 +3,7 @@ return {
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "neovim/nvim-lspconfig",
   },
   config = function()
     -- import mason
@@ -27,7 +28,7 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "tsserver",
+        "ts_ls",
         "astro",
         "html",
         "cssls",
@@ -50,6 +51,8 @@ return {
         "black",    -- python formatter
         "pylint",   -- python linter
         "eslint_d", -- js linter
+        "lemminx",
+        "xmlformatter"
       },
     })
   end,
