@@ -50,3 +50,7 @@ function _G.toggle_wrap()
 end
 
 vim.keymap.set("n", "<leader>w", toggle_wrap, { desc = "Toggle text wrapping" })
+
+-- Remap for pasting over selected text without overriding clipboard
+vim.keymap.set("v", "p", '"_dP', { desc = "Paste over selection without overwriting clipboard" })
+
