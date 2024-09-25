@@ -60,7 +60,7 @@ return {
       desc = "Telescope Git commits",
     },
     {
-      "<leader>gb",
+      "<leader>pb",
       function()
         require("telescope.builtin").git_branches()
       end,
