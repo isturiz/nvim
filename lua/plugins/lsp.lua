@@ -4,22 +4,23 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "folke/neodev.nvim",
+    "jose-elias-alvarez/null-ls.nvim", -- Añadir null-ls
   },
 
   keys = {
-    { "<space>e", vim.diagnostic.open_float, desc = "Open diagnostic float window" },
-    { "[d", vim.diagnostic.goto_prev, desc = "Go to previous diagnostic" },
-    { "]d", vim.diagnostic.goto_next, desc = "Go to next diagnostic" },
-    { "<space>q", vim.diagnostic.setloclist, desc = "Add diagnostics to loclist" },
-    { "gD", function() vim.lsp.buf.declaration() end, desc = "Go to declaration" },
-    { "gd", function() vim.lsp.buf.definition() end, desc = "Go to definition" },
-    { "K", function() vim.lsp.buf.hover() end, desc = "Show hover info" },
-    { "gi", function() vim.lsp.buf.implementation() end, desc = "Go to implementation" },
-    { "<C-k>", function() vim.lsp.buf.signature_help() end, desc = "Show signature help" },
-    { "<space>D", function() vim.lsp.buf.type_definition() end, desc = "Go to type definition" },
-    { "<space>rn", function() vim.lsp.buf.rename() end, desc = "Rename symbol" },
-    { "<space>ca", function() vim.lsp.buf.code_action() end, desc = "Code action" },
-    { "gr", function() vim.lsp.buf.references() end, desc = "Find references" },
+    { "<space>e",  vim.diagnostic.open_float,                    desc = "Open diagnostic float window" },
+    { "[d",        vim.diagnostic.goto_prev,                     desc = "Go to previous diagnostic" },
+    { "]d",        vim.diagnostic.goto_next,                     desc = "Go to next diagnostic" },
+    { "<space>q",  vim.diagnostic.setloclist,                    desc = "Add diagnostics to loclist" },
+    { "gD",        function() vim.lsp.buf.declaration() end,     desc = "Go to declaration" },
+    { "gd",        function() vim.lsp.buf.definition() end,      desc = "Go to definition" },
+    { "K",         function() vim.lsp.buf.hover() end,           desc = "Show hover info" },
+    { "gi",        function() vim.lsp.buf.implementation() end,  desc = "Go to implementation" },
+    { "<C-k>",     function() vim.lsp.buf.signature_help() end,  desc = "Show signature help" },
+    { "<space>D",  function() vim.lsp.buf.type_definition() end, desc = "Go to type definition" },
+    { "<space>rn", function() vim.lsp.buf.rename() end,          desc = "Rename symbol" },
+    { "<space>ca", function() vim.lsp.buf.code_action() end,     desc = "Code action" },
+    { "gr",        function() vim.lsp.buf.references() end,      desc = "Find references" },
     {
       "<space>f",
       function()
@@ -53,12 +54,23 @@ return {
       filetypes = { "html", "typescriptreact", "typescript.tsx", "astro" }
     })
 
-    require("lspconfig").ts_ls.setup({
+    require("lspconfig").tsserver.setup({
       on_attach = on_attach,
       filetypes = { "typescript", "typescriptreact", "javascriptreact", "javascript" },
     })
 
     require("lspconfig").pyright.setup({ on_attach = on_attach })
+
+    local null_ls = require("null-ls")
+    null_ls.setup({
+      sources = {
+        null_ls.builtins.formatting.black,   -- Añadir black para Python
+        null_ls.builtins.diagnostics.flake8, -- Añadir flake8 para linting si es necesario
+      },
+      on_attach = on_attach
+    })
+
+    require("lspconfig").black.setup({ on_attach = on_attach })
     require("lspconfig").astro.setup({ on_attach = on_attach })
     require("lspconfig").cssls.setup({ on_attach = on_attach })
     require("lspconfig").tailwindcss.setup({
