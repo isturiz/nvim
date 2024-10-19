@@ -59,20 +59,26 @@ return {
       filetypes = { "typescript", "typescriptreact", "javascriptreact", "javascript" },
     })
 
-    require("lspconfig").pyright.setup({ on_attach = on_attach })
+    require("lspconfig").pyright.setup({
+      on_attach = on_attach,
+      root_dir = require("lspconfig").util.root_pattern(".git", "pyrightconfig.json"),
+    })
+
 
     local null_ls = require("null-ls")
     null_ls.setup({
       sources = {
-        null_ls.builtins.formatting.black,   -- Añadir black para Python
-        null_ls.builtins.diagnostics.flake8, -- Añadir flake8 para linting si es necesario
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.diagnostics.pylint.with({
+          extra_args = { "--load-plugins=pylint_odoo" }
+        }),
       },
       on_attach = on_attach
     })
 
-    require("lspconfig").black.setup({ on_attach = on_attach })
     require("lspconfig").astro.setup({ on_attach = on_attach })
     require("lspconfig").cssls.setup({ on_attach = on_attach })
+    require("lspconfig").lemminx.setup({ on_attach = on_attach })
     require("lspconfig").tailwindcss.setup({
       on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "typescript.tsx", "astro" },
