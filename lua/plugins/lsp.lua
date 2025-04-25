@@ -53,6 +53,11 @@ return {
       on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "typescript.tsx", "astro" }
     })
+    
+    require("lspconfig").ts_ls.setup({
+      on_attach = on_attach,
+      filetypes = { "typescript", "typescriptreact", "javascriptreact", "javascript" },
+    })
 
     require("lspconfig").denols.setup({
       on_attach = on_attach,
