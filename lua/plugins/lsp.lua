@@ -53,17 +53,29 @@ return {
       on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "typescript.tsx", "astro" }
     })
-
+    
     require("lspconfig").ts_ls.setup({
       on_attach = on_attach,
       filetypes = { "typescript", "typescriptreact", "javascriptreact", "javascript" },
+    })
+
+    require("lspconfig").denols.setup({
+      on_attach = on_attach,
+      root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
+      filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" }
+    })
+
+    require("lspconfig").ts_ls.setup({
+      on_attach = on_attach,
+      root_dir = require("lspconfig").util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+      filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+      single_file_support = false, -- Disable single-file mode to avoid conflicts
     })
 
     require("lspconfig").pyright.setup({
       on_attach = on_attach,
       root_dir = require("lspconfig").util.root_pattern(".git", "pyrightconfig.json"),
     })
-
 
     local null_ls = require("null-ls")
     null_ls.setup({
