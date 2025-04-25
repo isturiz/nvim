@@ -54,7 +54,7 @@ return {
       filetypes = { "html", "typescriptreact", "typescript.tsx", "astro" }
     })
 
-    require("lspconfig").tsserver.setup({
+    require("lspconfig").ts_ls.setup({
       on_attach = on_attach,
       filetypes = { "typescript", "typescriptreact", "javascriptreact", "javascript" },
     })
