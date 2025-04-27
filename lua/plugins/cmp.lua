@@ -104,7 +104,7 @@ return {
       },
       sources = { -- the sorces are in order of priority
         { name = 'copilot', priority = 9, max_item_count = 3},
-        -- { name = 'codeium' },
+        { name = 'codeium' },
         { name = 'nvim_lsp' },
         { name = 'buffer', keyword_length = 5 },
         { name = 'path' },
