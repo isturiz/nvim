@@ -66,9 +66,8 @@ vim.lsp.config("*", {
 })
 
 vim.lsp.enable("lua_ls")
--- vim.lsp.enable("phpactor")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("tailwind")
--- vim.lsp.enable("pylsp")
-vim.lsp.enable("pyright")
+vim.lsp.enable("pylsp")
 vim.lsp.enable("lua_ls")
+vim.lsp.enable("lemminx")
