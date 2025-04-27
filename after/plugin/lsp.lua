@@ -1,24 +1,28 @@
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
   callback = function(event)
-    local map = function(keys, func, desc)
+    local nmap = function(keys, func, desc)
       vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
     end
 
-    map("gd", require("snacks").picker.lsp_definitions, "[G]oto [D]efinition")
-    map("gr", require("snacks").picker.lsp_references, "[G]oto [R]eferences")
-    map("gI", require("snacks").picker.lsp_implementations, "[G]oto [I]mplementation")
-    map("<leader>D", require("snacks").picker.lsp_type_definitions, "Type [D]efinition")
-    map("<leader>ds", require("snacks").picker.lsp_symbols, "[D]ocument [S]ymbols")
-    map("<leader>ws", require("snacks").picker.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
-    map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-    map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-    map("K", function()
+    local vmap = function(keys, func, desc)
+      vim.keymap.set("v", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+    end
+
+    nmap("gdn", require("snacks").picker.lsp_definitions, "[G]oto [D]efinition")
+    nmap("gr", require("snacks").picker.lsp_references, "[G]oto [R]eferences")
+    nmap("gI", require("snacks").picker.lsp_implementations, "[G]oto [I]mplementation")
+    nmap("<leader>D", require("snacks").picker.lsp_type_definitions, "Type [D]efinition")
+    nmap("<leader>ds", require("snacks").picker.lsp_symbols, "[D]ocument [S]ymbols")
+    nmap("<leader>ws", require("snacks").picker.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
+    nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+    nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+    nmap("K", function()
       vim.lsp.buf.hover({ border = "rounded" })
     end, "Hover Documentation")
-    map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+    nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
     -- will be done with conform
-    map("<leader>f", vim.lsp.buf.format, "[F]ormat the document")
+    nmap("<leader>f", vim.lsp.buf.format, "[F]ormat the document")
 
     -- The following two autocommands are used to highlight references of the
     -- word under your cursor when your cursor rests there for a little while.
@@ -54,7 +58,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --
     -- This may be unwanted, since they displace some of your code
     if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-      map("<leader>th", function()
+      nmap("<leader>th", function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
       end, "[T]oggle Inlay [H]ints")
     end
