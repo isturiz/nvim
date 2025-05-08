@@ -54,3 +54,6 @@ vim.keymap.set("n", "<leader>w", toggle_wrap, { desc = "Toggle text wrapping" })
 -- Remap for pasting over selected text without overriding clipboard
 vim.keymap.set("v", "p", '"_dP', { desc = "Paste over selection without overwriting clipboard" })
 
+
+-- Format selection or line
+vim.keymap.set('v', 'f', 'gq', { desc = "Format selection" })
