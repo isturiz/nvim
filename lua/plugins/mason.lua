@@ -36,7 +36,7 @@ return {
         "svelte",
         "lua_ls",
         "emmet_ls",
-        "pyright",
+        "pylsp",
         "lemminx",
         "denols",
       },

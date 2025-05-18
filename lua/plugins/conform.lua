@@ -5,5 +5,8 @@ return {
     formatters_by_ft = {
       ["python"] = { "black" },
     },
+    init = function()
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    end,
   },
 }
