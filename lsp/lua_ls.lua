@@ -17,10 +17,21 @@ return {
       completion = {
         callSnippet = "Replace",
       },
-      -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
       diagnostics = {
-        -- disable = { "missing-fields" },
+        globals = { "vim" },
+      },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME,
+          "${3rd}/luv/library",
+          "${3rd}/busted/library",
+        },
+      },
+      runtime = {
+        version = "LuaJIT", -- importante para que entienda la VM de Neovim
       },
     },
   },
 }
+
