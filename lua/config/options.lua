@@ -27,3 +27,5 @@ vim.g.netrw_liststyle = 3 -- Set netrw view to detailed list mode
 vim.g.netrw_keepdir = 1 -- Keep the cursor on the last file opened when returning to netrw
 
 vim.wo.scrolloff = 10 -- Set the number of lines to keep above and below the cursor
+
+vim.opt.colorcolumn = "80" -- Highlight the 80th column
