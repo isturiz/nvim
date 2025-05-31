@@ -63,9 +63,8 @@ return {
       end,
       desc = "Rename File",
     },
-
     {
-      "<leader>gB",
+      "<leader>gcf",
       function()
         require("snacks").gitbrowse()
       end,
