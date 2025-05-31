@@ -3,14 +3,10 @@ return {
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   opts = {
-    -- add any opts here
-    -- for example
     provider = "copilot",
-
-    -- ollama = {
-    --   endpoint = "http://127.0.0.1:11434", -- Note that there is no /v1 at the end.
-    --   model = "qwen2.5-coder:3b",
-    -- },
+  },
+  file_selector = {
+    provider = "snacks",
   },
 
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -21,10 +17,11 @@ return {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
+
     --- The below dependencies are optional,
     "echasnovski/mini.pick",         -- for file_selector provider mini.pick
     "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-    "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
+    -- "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
     "ibhagwan/fzf-lua",              -- for file_selector provider fzf
     "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
     "zbirenbaum/copilot.lua",        -- for providers='copilot'
