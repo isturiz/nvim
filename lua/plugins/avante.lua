@@ -100,7 +100,36 @@ return {
       --- Disable by setting to -1.
       override_timeoutlen = 500,
     },
-    system_prompt = "All generated code must be in English. Ensure elegant and quality code."
+
+    -- system_prompt as function ensures LLM always has latest MCP server state
+    -- This is evaluated for every message, even in existing chats
+    system_prompt = function()
+      local hub = require("mcphub").get_hub_instance()
+      return hub and hub:get_active_servers_prompt() or ""
+    end,
+    -- Using function prevents requiring mcphub before it's loaded
+    custom_tools = function()
+      return {
+        require("mcphub.extensions.avante").mcp_tool(),
+      }
+    end,
+
+
+    -- Avante also provides built-in tools for file operations and terminal access.
+    -- You need to disable either the MCP Hub's built-in tools or Avante's tools to avoid conflicts.
+    -- If you prefer to use neovim server tools, you should disable the corresponding Avante tools to prevent duplication:
+    disabled_tools = {
+      "list_files", -- Built-in file operations
+      "search_files",
+      "read_file",
+      "create_file",
+      "rename_file",
+      "delete_file",
+      "create_dir",
+      "rename_dir",
+      "delete_dir",
+      "bash", -- Built-in terminal access
+    },
 
   },
 
