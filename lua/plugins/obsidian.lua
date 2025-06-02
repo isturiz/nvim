@@ -1,3 +1,15 @@
+local vaults = {
+  {
+    name = "personal",
+    path = '~/obsidian/Documents/personal'
+  },
+  {
+    name = "workspaces",
+    path = '~/obsidian/Documents/workspaces'
+  },
+
+}
+
 return {
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
@@ -8,14 +20,11 @@ return {
     ui = {
       enable = false,
     },
-    workspaces = {
-      {
-        name = "workspaces",
-        path = '/Users/isturiz/obsidian-cloud/Documents/workspaces'
-      },
-    },
+    workspaces = vaults,
+    pickers = { name = "snacks.pick"},
     completion = {
-      nvim_cmp = true,
+      nvim_cmp = false,
+      blink = false,
       min_chars = 2,
     },
     notes_subdir = "limbo",
@@ -26,7 +35,7 @@ return {
     daily_notes = {
       template = "note",
     },
-    keymaps = {
+    mappings = {
       -- "Obsidian follow"
       ["<leader>of"] = {
         action = function()
