@@ -43,7 +43,7 @@ return {
     },
 
     {
-      "<leader>n",
+      "<leader>nh",
       function()
         require("snacks").notifier.show_history()
       end,
