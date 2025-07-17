@@ -117,6 +117,13 @@ return {
       desc = "Smart Picker",
     },
     {
+      "<leader>pf",
+      function()
+        require("snacks").picker.files()
+      end,
+      desc = "Files Picker",
+    },
+    {
       "<leader>pe",
       function()
         require("snacks").picker.buffers()
