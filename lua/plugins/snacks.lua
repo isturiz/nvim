@@ -3,6 +3,8 @@ return {
   priority = 1000,
   lazy = false,
   keys = {
+
+    -- terminal
     {
       "<leader>\\",
       function()
@@ -12,6 +14,7 @@ return {
       mode = { "n", "t" },
     },
 
+    -- zen
     {
       "<leader>z",
       function()
@@ -27,6 +30,7 @@ return {
       desc = "Toggle Zoom",
     },
 
+    -- scratch
     {
       "<leader>.",
       function()
@@ -42,6 +46,7 @@ return {
       desc = "Select Scratch Buffer",
     },
 
+    -- notifier
     {
       "<leader>nh",
       function()
@@ -49,6 +54,8 @@ return {
       end,
       desc = "Notification History",
     },
+
+    -- bufdelete
     {
       "<leader>bd",
       function()
@@ -56,6 +63,8 @@ return {
       end,
       desc = "Delete Buffer",
     },
+
+    -- rename
     {
       "<leader>cR",
       function()
@@ -63,20 +72,33 @@ return {
       end,
       desc = "Rename File",
     },
+
+    -- gitbrowse
     {
-      "<leader>gcf",
+      "<leader>gcf", -- TODO: improve this map
       function()
         require("snacks").gitbrowse()
       end,
       desc = "Git Browse",
       mode = { "n", "v" },
     },
+
+    -- git
     {
       "<leader>gb",
       function()
         require("snacks").git.blame_line()
       end,
       desc = "Git Blame Line",
+    },
+
+    -- lazygit
+    {
+      "<leader>lg",
+      function()
+        require("snacks").lazygit()
+      end,
+      desc = "Lazygit",
     },
     {
       "<leader>gf",
@@ -86,19 +108,14 @@ return {
       desc = "Lazygit Current File History",
     },
     {
-      "<leader>lg",
-      function()
-        require("snacks").lazygit()
-      end,
-      desc = "Lazygit",
-    },
-    {
       "<leader>gl",
       function()
         require("snacks").lazygit.log()
       end,
       desc = "Lazygit Log (cwd)",
     },
+
+    -- notifier
     {
       "<leader>un",
       function()
@@ -106,9 +123,8 @@ return {
       end,
       desc = "Dismiss All Notifications",
     },
-    -- { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",              mode = { "n", "t" } },
-    -- { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",              mode = { "n", "t" } },
 
+    -- picker
     {
       "<leader>pp",
       function()
