@@ -31,40 +31,12 @@ return {
   end,
 
   keys = {
-    -- {
-    --   "<leader>pp",
-    --   function()
-    --     require('telescope.builtin').git_files({ show_untracked = true })
-    --   end,
-    --   desc = "Telescope Git Files",
-    -- },
     {
       "<leader>pe",
       function()
         require("telescope.builtin").buffers()
       end,
       desc = "Telescope buffers",
-    },
-    {
-      "<leader>gs",
-      function()
-        require("telescope.builtin").git_status()
-      end,
-      desc = "Telescope Git status",
-    },
-    {
-      "<leader>gc",
-      function()
-        require("telescope.builtin").git_bcommits()
-      end,
-      desc = "Telescope Git commits",
-    },
-    {
-      "<leader>pb",
-      function()
-        require("telescope.builtin").git_branches()
-      end,
-      desc = "Telescope Git branches",
     },
     {
       "<leader>rp",
@@ -86,20 +58,6 @@ return {
       end,
       desc = "Telescope Find Plugins",
     },
-    -- {
-    --   "<leader>pf",
-    --   function()
-    --     require('telescope.builtin').find_files()
-    --   end,
-    --   desc = "Telescope Find Files",
-    -- },
-    {
-      "<leader>ph",
-      function()
-        require("telescope.builtin").help_tags()
-      end,
-      desc = "Telescope Help"
-    },
     {
       "<leader>bb",
       function()
@@ -107,12 +65,5 @@ return {
       end,
       desc = "Telescope file browser"
     },
-    -- {
-    --   "<leader>pg",
-    --   function()
-    --     require('telescope.builtin').live_grep()
-    --   end,
-    --   desc = "Telescope Live Grep",
-    -- }
   },
 }
