@@ -39,27 +39,6 @@ return {
       desc = "Telescope buffers",
     },
     {
-      "<leader>gs",
-      function()
-        require("telescope.builtin").git_status()
-      end,
-      desc = "Telescope Git status",
-    },
-    {
-      "<leader>gc",
-      function()
-        require("telescope.builtin").git_bcommits()
-      end,
-      desc = "Telescope Git commits",
-    },
-    {
-      "<leader>pb",
-      function()
-        require("telescope.builtin").git_branches()
-      end,
-      desc = "Telescope Git branches",
-    },
-    {
       "<leader>rp",
       function()
         require("telescope.builtin").find_files({
