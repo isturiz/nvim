@@ -173,7 +173,14 @@ return {
     },
     indent = { enabled = true },
     input = { enabled = true },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      layout = {
+        -- best presets:
+        preset = 'sidebar'
+        -- preset = 'ivy_split'
+      }
+    },
     notifier = { enabled = true },
     quickfile = { enabled = true },
     scroll = { enabled = true },
