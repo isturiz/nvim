@@ -80,13 +80,6 @@ return {
       desc = "Telescope Find Plugins",
     },
     {
-      "<leader>ph",
-      function()
-        require("telescope.builtin").help_tags()
-      end,
-      desc = "Telescope Help"
-    },
-    {
       "<leader>bb",
       function()
         require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true })
