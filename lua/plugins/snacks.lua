@@ -4,7 +4,7 @@ return {
   lazy = false,
   keys = {
     {
-      "<c-\\>",
+      "<leader>\\",
       function()
         require("snacks").terminal()
       end,
