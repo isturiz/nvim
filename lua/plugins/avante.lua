@@ -7,21 +7,7 @@ return {
     require("meta-plugins.avante.recipes")
   end,
   opts = {
-    -- this is a test
     provider = "copilot",
-    -- copilot = {
-    --   model = "claude-3.7-sonnet"
-    -- },
-    -- cursor_applying_provider = "copilot",
-    -- auto_suggestions_provider = "copilot",
-    -- behaviour = {
-    --   auto_suggestions = true,               -- Experimental stage
-    --   auto_set_highlight_group = true,
-    --   auto_set_keymaps = true,
-    --   auto_apply_diff_after_generation = false,
-    --   support_paste_from_clipboard = false,
-    --   enable_cursor_planning_mode = true,   -- enable cursor planning mode!
-    -- },
     --- @alias FileSelectorProvider "native" | "fzf" | "mini.pick" | "snacks" | "telescope" | string
     file_selector = {
       provider = "snacks",

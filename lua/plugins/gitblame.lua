@@ -18,7 +18,7 @@ return {
     {
       "<leader>gB",
       ':GitBlameOpenCommitURL<CR>',
-      desc = "Open blame commit URL",
+      desc = "Git Blame Commit URL",
     },
   },
 }
