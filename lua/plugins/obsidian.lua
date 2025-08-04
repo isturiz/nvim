@@ -1,7 +1,7 @@
 local vaults = {
   {
     name = "personal",
-    path = '~/obsidian/Documents/personal'
+    path = '~/obsidian/Documents/personal2'
   },
   {
     name = "workspaces",
