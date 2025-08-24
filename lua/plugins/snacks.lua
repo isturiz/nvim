@@ -196,5 +196,14 @@ return {
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
+    image = {
+      enabled = true,
+      doc = {
+        inline = false,
+        float = true,
+        max_width = 60,
+        max_height = 30,
+      },
+    },
   },
 }
