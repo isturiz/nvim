@@ -1,105 +1,89 @@
 local vaults = {
   {
     name = "personal",
-    path = '~/obsidian/Documents/personal2'
+    path = '~/obsidian/personal',
+    overrides = {
+      notes_subdir = "limbo",
+    },
   },
   {
     name = "workspaces",
-    path = '~/obsidian/Documents/workspaces'
+    path = '~/obsidian/work'
   },
 
 }
 
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
-  dependencies = {
-    "nvim-lua/plenary.nvim",
+  lazy = true,
+  ft = "markdown",
+  event = { "BufReadPre " .. vim.fn.expand("~") .. "**/Obsidian/**.md" },
+  keys = {
+    { "<leader>oo", "<cmd>Obsidian open<cr>",         desc = "Open in app" },
+    { "<leader>on", "<cmd>Obsidian new<cr>",          desc = "New note" },
+    { "<leader>oc", "<cmd>Obsidian check<cr>",        desc = "Toggle checkbox" },
+    { "<leader>of", "<cmd>Obsidian quick_switch<cr>", desc = "Find note" },
+    { "<leader>ob", "<cmd>Obsidian backlinks<cr>",    desc = "Backlinks to this note" },
+    { "<leader>od", "<cmd>Obsidian today<cr>",        desc = "Daily note" },
+    { "<leader>oy", "<cmd>Obsidian yesterday<cr>",    desc = "Yesterday's note" },
+    { "<leader>ot", "<cmd>Obsidian yomorrow<cr>",     desc = "Tomorrow's note" },
+    { "<leader>oT", "<cmd>Obsidian template<cr>",     desc = "Insert template" },
+    { "<leader>os", "<cmd>Obsidian search<cr>",       desc = "Search notes" },
+    { "<leader>ow", "<cmd>Obsidian workspace<cr>",    desc = "Show workspace" },
+    { "<leader>ol", "<cmd>Obsidian links<cr>",        desc = "Link to an existing note", mode = "x" },
+    { "<leader>oL", "<cmd>ObsidianLinkNew<cr>",       desc = "Link to a new note",       mode = "x" },
+    { "<leader>so", "<cmd>Obsidian search<cr>",       desc = "Obsidian notes" },
   },
+  ---@module 'obsidian'
+  ---@type obsidian.config
   opts = {
-    ui = {
-      enable = false,
-    },
+
+    ------------
+    -- settings
+    ------------
     workspaces = vaults,
-    pickers = { name = "snacks.pick"},
-    completion = {
-      nvim_cmp = false,
-      blink = false,
-      min_chars = 2,
-    },
-    notes_subdir = "limbo",
-    new_notes_location = "limbo",
-    attachments = {
-      img_folder = "files",
-    },
     daily_notes = {
-      template = "note",
+      -- Optional, if you keep daily notes in a separate directory.
+      folder = "dailies",
+      date_format = "%Y-%m-%d",
+      -- Optional, default tags to add to each new daily note created.
+      default_tags = { "daily-notes" },
+      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+      template = nil,
+      -- Optional, if you want `Obsidian yesterday` to return the last work day or `Obsidian tomorrow` to return the next work day.
+      workdays_only = true,
     },
-    mappings = {
-      -- "Obsidian follow"
-      ["<leader>of"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
-      -- Toggle check-boxes "obsidian done"
-      ["<leader>od"] = {
-        action = function()
-          return require("obsidian").util.toggle_checkbox()
-        end,
-        opts = { buffer = true },
-      },
-      -- Create a new newsletter issue
-      ["<leader>onn"] = {
-        action = function()
-          return require("obsidian").commands.new_note("Newsletter-Issue")
-        end,
-        opts = { buffer = true },
-      },
-      ["<leader>ont"] = {
-        action = function()
-          return require("obsidian").util.insert_template("Newsletter-Issue")
-        end,
-        opts = { buffer = true },
-      },
-    },
-    note_frontmatter_func = function(note)
-      -- This is equivalent to the default frontmatter function.
-      local out = { id = note.id, aliases = note.aliases, tags = note.tags }
-
-      -- `note.metadata` contains any manually added fields in the frontmatter.
-      -- So here we just make sure those fields are kept in the frontmatter.
-      if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-        for k, v in pairs(note.metadata) do
-          out[k] = v
-        end
-      end
-      return out
-    end,
-
-    note_id_func = function(title)
-      -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
-      -- In this case a note with the title 'My new note' will be given an ID that looks
-      -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
-      local suffix = ""
-      if title ~= nil then
-        -- If title is given, transform it into valid file name.
-        suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
-      else
-        -- If title is nil, just add 4 random uppercase letters to the suffix.
-        for _ = 1, 4 do
-          suffix = suffix .. string.char(math.random(65, 90))
-        end
-      end
-      return tostring(os.time()) .. "-" .. suffix
-    end,
+    new_notes_location = "current_dir",
 
     templates = {
-      subdir = "templates",
+      folder = "templates",
       date_format = "%Y-%m-%d-%a",
-      gtime_format = "%H:%M",
-      tags = "",
+      time_format = "%H:%M",
+    },
+    backlinks = {
+      parse_headers = true,
+    },
+    attachments = {
+      img_folder = "assets/imgs",
+      img_name_func = function()
+        return string.format("Pasted image %s", os.date "%Y%m%d%H%M%S")
+      end,
+      confirm_img_paste = true,
+    },
+    ------------
+    -- technical
+    ------------
+    legacy_commands = false,
+    picker = {
+      name = "snacks.pick",
+      note_mappings = {
+        new = "<C-n>",
+      },
+    },
+    completion = {
+      nvim_cmp = false,
+      blick = true,
     },
   },
 }
