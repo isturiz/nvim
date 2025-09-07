@@ -33,7 +33,6 @@ return {
     { "<leader>ow", "<cmd>Obsidian workspace<cr>",    desc = "Show workspace" },
     { "<leader>ol", "<cmd>Obsidian links<cr>",        desc = "Link to an existing note", mode = "x" },
     { "<leader>oL", "<cmd>ObsidianLinkNew<cr>",       desc = "Link to a new note",       mode = "x" },
-    { "<leader>so", "<cmd>Obsidian search<cr>",       desc = "Obsidian notes" },
   },
   ---@module 'obsidian'
   ---@type obsidian.config
