@@ -60,19 +60,6 @@ end
 
 -- === Key Mappings Table ===
 local mappings = {
-  -- Normal & Visual mode (ask actions)
-  -- { mode = { "n", "v" }, key = "<leader>ag", question = AVANTE_ACTIONS.grammar_correction, desc = "Grammar Correction (ask)" },
-  -- { mode = { "n", "v" }, key = "<leader>ak", question = AVANTE_ACTIONS.keywords, desc = "Keywords (ask)" },
-  -- { mode = { "n", "v" }, key = "<leader>al", question = AVANTE_ACTIONS.code_readability, desc = "Code Readability Analysis (ask)" },
-  -- { mode = { "n", "v" }, key = "<leader>ao", question = AVANTE_ACTIONS.optimize_code, desc = "Optimize Code (ask)" },
-  -- { mode = { "n", "v" }, key = "<leader>am", question = AVANTE_ACTIONS.summarize, desc = "Summarize Text (ask)" },
-  -- { mode = { "n", "v" }, key = "<leader>ax", question = AVANTE_ACTIONS.explain_code, desc = "Explain Code (ask)" },
-  -- { mode = { "n", "v" }, key = "<leader>ac", question = get_complete_code_prompt, desc = "Complete Code (ask)" },
-  -- { mode = { "n", "v" }, key = "<leader>ad", question = AVANTE_ACTIONS.add_docstring, desc = "Add Docstring (ask)" },
-  -- { mode = { "n", "v" }, key = "<leader>ab", question = AVANTE_ACTIONS.fix_bugs, desc = "Fix Bugs (ask)" },
-  -- { mode = { "n", "v" }, key = "<leader>au", question = AVANTE_ACTIONS.add_tests, desc = "Add Tests (ask)" },
-
-  -- Visual mode only (edit actions)
   { mode = "v", key = "<leader>aG", question = AVANTE_ACTIONS.grammar_correction, desc = "Grammar Correction (edit)" },
   { mode = "v", key = "<leader>aK", question = AVANTE_ACTIONS.keywords, desc = "Keywords (edit)" },
   { mode = "v", key = "<leader>aO", question = AVANTE_ACTIONS.optimize_code, desc = "Optimize Code (edit)" },
