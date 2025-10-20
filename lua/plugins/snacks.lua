@@ -199,33 +199,4 @@ return {
       },
     },
   },
-
-  config = function(_, opts)
-    -- Normal setup
-    require("snacks").setup(opts)
-
-    -- Monkey patch for https://github.com/folke/snacks.nvim/pull/2012
-    -- Tie the picker to the window from which it was invoked, so
-    -- preview and focus behavior are correct with special buffers (e.g. oil.nvim).
-    local ok, Main = pcall(require, "snacks.picker.core.main")
-    if not ok or Main.__source_window_patch_applied then
-      return
-    end
-
-    local orig_new = Main.new
-    Main.new = function(...)
-      -- Capture current window before picker construction
-      local src_win = vim.api.nvim_get_current_win()
-      local self = orig_new(...)
-
-      -- Prefer the window from which the picker was invoked
-      -- This helps both preview placement and selecting the correct window on close
-      self.win = src_win
-      self.source_win = src_win
-
-      return self
-    end
-
-    Main.__source_window_patch_applied = false
-  end,
 }
