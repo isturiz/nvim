@@ -216,7 +216,50 @@ return {
 					show_empty = true,
 				})
 			end,
-			desc = "Grep Picker subdirectories",
+			desc = "Grep Picker sub-repositories ",
+		},
+		{
+			"<leader>pF",
+			function()
+				local cwd = vim.fn.getcwd()
+				-- Get list of entries in cwd (files and dirs)
+				local entries = vim.fn.glob(cwd .. "/*", 0, 1)
+				local dirs = {}
+				-- Skip list for noisy dirs (adjust as needed)
+				local skip = {
+					["node_modules"] = true,
+					[".git"] = true,
+					["target"] = true,
+					["build"] = true,
+					["dist"] = true,
+				}
+
+				for _, p in ipairs(entries) do
+					if vim.fn.isdirectory(p) == 1 then
+						local name = vim.fn.fnamemodify(p, ":t")
+						if not skip[name] then
+							table.insert(dirs, p)
+						end
+					end
+				end
+
+				-- Fallback to cwd if no subdirectories found
+				if #dirs == 0 then
+					dirs = { cwd }
+				end
+
+				-- Open snacks files picker searching the collected directories.
+				-- Use sensible defaults: show hidden = false, follow symlinks = false.
+				-- Adjust opts (hidden/ignored/follow/args) as you need.
+				require("snacks").picker.files({
+					dirs = dirs,
+					hidden = false,
+					ignored = false,
+					follow = false,
+					show_empty = true,
+				})
+			end,
+			desc = "Find files sub-repositories (auto-detect subdirs)",
 		},
 	},
 	---@type snacks.Config
