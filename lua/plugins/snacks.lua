@@ -261,6 +261,54 @@ return {
 			end,
 			desc = "Find files sub-repositories (auto-detect subdirs)",
 		},
+		{
+			"<leader>rp",
+			function()
+				local plugins_dir = vim.fn.expand("~/.config/nvim/lua/plugins")
+				-- gather all .lua files in the plugins directory
+				local files = vim.fn.globpath(plugins_dir, "*.lua", false, true)
+				local items = {}
+
+				for _, f in ipairs(files) do
+					local name = vim.fn.fnamemodify(f, ":t") -- e.g. "foo.lua"
+					-- present names without the .lua extension to match original behavior
+					if name:sub(-4) == ".lua" then
+						name = name:sub(1, -5)
+					end
+					table.insert(items, name)
+				end
+
+				-- if no plugin files found, offer a prompt to create one
+				if #items == 0 then
+					vim.schedule(function()
+						local name = vim.fn.input("No plugin files found. Create new plugin (name): ")
+						if name and name ~= "" then
+							local path = plugins_dir .. "/" .. name
+							if path:sub(-4) ~= ".lua" then
+								path = path .. ".lua"
+							end
+							vim.cmd("edit " .. vim.fn.fnameescape(path))
+						end
+					end)
+					return
+				end
+
+				vim.ui.select(items, {
+					prompt = "Plugins",
+					fmt_item = function(item) return item end,
+				}, function(choice)
+					if not choice or choice == "" then
+						return
+					end
+					local path = plugins_dir .. "/" .. choice
+					if path:sub(-4) ~= ".lua" then
+						path = path .. ".lua"
+					end
+					vim.cmd("edit " .. vim.fn.fnameescape(path))
+				end)
+			end,
+			desc = "Find Plugins",
+		},
 	},
 	---@type snacks.Config
 	opts = {
