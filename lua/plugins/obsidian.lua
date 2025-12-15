@@ -20,19 +20,19 @@ return {
   ft = "markdown",
   event = { "BufReadPre " .. vim.fn.expand("~") .. "**/Obsidian/**.md" },
   keys = {
-    { "<leader>oo", "<cmd>Obsidian open<cr>",         desc = "Open in app" },
-    { "<leader>on", "<cmd>Obsidian new<cr>",          desc = "New note" },
-    { "<leader>oc", "<cmd>Obsidian check<cr>",        desc = "Toggle checkbox" },
-    { "<leader>of", "<cmd>Obsidian quick_switch<cr>", desc = "Find note" },
-    { "<leader>ob", "<cmd>Obsidian backlinks<cr>",    desc = "Backlinks to this note" },
-    { "<leader>od", "<cmd>Obsidian today<cr>",        desc = "Daily note" },
-    { "<leader>oy", "<cmd>Obsidian yesterday<cr>",    desc = "Yesterday's note" },
-    { "<leader>ot", "<cmd>Obsidian yomorrow<cr>",     desc = "Tomorrow's note" },
-    { "<leader>oT", "<cmd>Obsidian template<cr>",     desc = "Insert template" },
-    { "<leader>os", "<cmd>Obsidian search<cr>",       desc = "Search notes" },
-    { "<leader>ow", "<cmd>Obsidian workspace<cr>",    desc = "Show workspace" },
-    { "<leader>ol", "<cmd>Obsidian links<cr>",        desc = "Link to an existing note", mode = "x" },
-    { "<leader>oL", "<cmd>ObsidianLinkNew<cr>",       desc = "Link to a new note",       mode = "x" },
+    { "<leader>Oo", "<cmd>Obsidian open<cr>",         desc = "Open in app" },
+    { "<leader>On", "<cmd>Obsidian new<cr>",          desc = "New note" },
+    { "<leader>Oc", "<cmd>Obsidian check<cr>",        desc = "Toggle checkbox" },
+    { "<leader>Of", "<cmd>Obsidian quick_switch<cr>", desc = "Find note" },
+    { "<leader>Ob", "<cmd>Obsidian backlinks<cr>",    desc = "Backlinks to this note" },
+    { "<leader>Od", "<cmd>Obsidian today<cr>",        desc = "Daily note" },
+    { "<leader>Oy", "<cmd>Obsidian yesterday<cr>",    desc = "Yesterday's note" },
+    { "<leader>Ot", "<cmd>Obsidian yomorrow<cr>",     desc = "Tomorrow's note" },
+    { "<leader>OT", "<cmd>Obsidian template<cr>",     desc = "Insert template" },
+    { "<leader>Os", "<cmd>Obsidian search<cr>",       desc = "Search notes" },
+    { "<leader>Ow", "<cmd>Obsidian workspace<cr>",    desc = "Show workspace" },
+    { "<leader>Ol", "<cmd>Obsidian links<cr>",        desc = "Link to an existing note", mode = "x" },
+    { "<leader>OL", "<cmd>ObsidianLinkNew<cr>",       desc = "Link to a new note",       mode = "x" },
   },
   ---@module 'obsidian'
   ---@type obsidian.config
@@ -53,7 +53,8 @@ return {
       -- Optional, if you want `Obsidian yesterday` to return the last work day or `Obsidian tomorrow` to return the next work day.
       workdays_only = true,
     },
-    new_notes_location = "current_dir",
+    new_notes_location = "notes_subdir",
+
 
     templates = {
       folder = "templates",
